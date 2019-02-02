@@ -1,5 +1,7 @@
 # nuxt-netlify-functions-example
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ae375e95-eb24-46ed-95d3-a8591add95bc/deploy-status)](https://app.netlify.com/sites/nuxt-netlify-functions-example/deploys)
+
 > Nuxt.js example for running Netlify functions locally in a dev environment and as a generated static site deployed to Netlify
 
 ## Build Setup
