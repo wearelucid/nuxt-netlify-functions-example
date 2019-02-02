@@ -1,0 +1,23 @@
+@import '../assets/css/global';
+
+$c: 'Layout';
+$p: 'Page';
+
+/* NUXT default transition */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.#{$c} {
+  margin: auto;
+}
+
+.#{$p} {
+  margin: auto;
+}
