@@ -36,7 +36,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.sendFormToFunction()
+          this.postFormToLambdaFunction()
         } else {
           return false
         }
@@ -44,8 +44,9 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
+      this.error = null
     },
-    async sendFormToFunction() {
+    async postFormToLambdaFunction() {
       try {
         const res = await this.$axios.$post('/.netlify/functions/mailgun', {
           name: this.form.name,
@@ -53,6 +54,7 @@ export default {
         })
         this.response = res
         this.error = null
+        this.resetForm('mailgunForm')
       } catch (e) {
         this.error = e.response
         this.response = '—'

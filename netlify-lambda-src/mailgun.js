@@ -1,33 +1,51 @@
+/* eslint-disable no-console */
 require('dotenv').config()
-const mailgun = require('mailgun.js')
-const { MG_API_KEY: mgApiKey, MG_URL: mgUrl } = process.env
-console.log(mgApiKey, mgUrl)
-const mg = mailgun.client({
-  username: 'api',
-  key: mgApiKey,
-  url: mgUrl
+const Mailgun = require('mailgun-js')
+const { MG_API_KEY: apiKey, MG_DOMAIN: domain, MG_HOST: host } = process.env
+const mailgun = Mailgun({
+  apiKey,
+  domain,
+  host
 })
 
-exports.handler = async (event, context) => {
+// eslint-disable-next-line require-await
+const sendEmail = async ({ name, recipient }) => {
+  console.log('Sending email')
+  return new Promise((resolve, reject) => {
+    const mailData = {
+      from: 'Netlify Function Example <noreply@wearelucid.ch>',
+      to: recipient.toString(),
+      subject: `Hello ${name}`,
+      html: `<h1>👋 Hello ${name}</h1>`
+    }
+
+    mailgun.messages().send(mailData, (err, res) => {
+      console.log(res && res.message ? res.message : res)
+      if (err) return reject(err)
+      resolve()
+    })
+  })
+}
+
+exports.handler = async event => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
   }
 
-  const data = JSON.parse(event.body)
-  const { name, recipient } = data
-
-  const res = await mg.messages
-    .create(mgUrl, {
-      from: 'Netlify Function Example <noreply@wearelucid.ch>',
-      to: recipient,
-      subject: `Hello ${name}`,
-      html: `<h1>👋 Hello ${name}</h1>`
-    })
-    .then(response => ({
+  try {
+    const data = JSON.parse(event.body)
+    await sendEmail(data)
+    return {
       statusCode: 200,
-      body: JSON.stringify(response)
-    }))
-    .catch(error => ({ statusCode: 422, body: String(error) }))
-  return res
+      body: JSON.stringify({
+        message: 'Email sent!'
+      })
+    }
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: err.message || err
+    }
+  }
 }
