@@ -12,3 +12,5 @@ dist
 
 # Netlify Lambda Functions
 netlify-lambda-build
+
+.env
