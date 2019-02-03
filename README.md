@@ -2,8 +2,13 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ae375e95-eb24-46ed-95d3-a8591add95bc/deploy-status)](https://app.netlify.com/sites/nuxt-netlify-functions-example/deploys)
 
-> Nuxt.js example for running Netlify functions locally in a dev environment and as a generated static site deployed to Netlify
+> Nuxt.js example for running Netlify functions locally in a dev environment and as a generated static site deployed to Netlify.
+
 > Heavily inspired by the [official guide](https://functions-playground.netlify.com/) and [this example](https://github.com/stefanjudis/service-party).
+
+## Demo
+Live demo can be found [here](https://nuxt-netlify-functions-example.netlify.com/).
+
 
 ## Info
 For the requests on the client side we use the [Axios Module](https://github.com/nuxt-community/axios-module). To proxy locally you have to set up the [Proxy Module](https://github.com/nuxt-community/proxy-module) in `nuxt.config.js`:
