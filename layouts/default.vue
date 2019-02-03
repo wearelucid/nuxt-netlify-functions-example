@@ -1,9 +1,15 @@
 <template>
-  <div class="Layout">
-    <main id="main" ref="main" class="Layout__content">
+  <ElContainer direction="vertical" class="Layout">
+    <ElHeader height="auto">
+      <h1>nuxt-netlify-functions-example</h1>
+    </ElHeader>
+    <ElMain>
       <nuxt />
-    </main>
-  </div>
+    </ElMain>
+    <ElFooter>
+      Created by <a href="https://github.com/wearelucid" target="_blank">Lucid</a>
+    </ElFooter>
+  </ElContainer>
 </template>
 
 <style src='./layout.scss' lang='scss' />

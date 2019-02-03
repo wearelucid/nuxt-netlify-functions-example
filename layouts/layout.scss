@@ -1,7 +1,4 @@
-@import '../assets/css/global';
-
-$c: 'Layout';
-$p: 'Page';
+$l: 'Layout';
 
 /* NUXT default transition */
 .page-enter-active,
@@ -14,10 +11,7 @@ $p: 'Page';
   opacity: 0;
 }
 
-.#{$c} {
-  margin: auto;
-}
-
-.#{$p} {
-  margin: auto;
+.#{$l} {
+  max-width: 600px;
+  margin: 0 auto;
 }

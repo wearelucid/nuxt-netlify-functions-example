@@ -15,7 +15,16 @@ module.exports = {
   /*
   ** CSS
   */
-  css: ['@/assets/css/main.scss'],
+  css: [
+    'normalize.css',
+    '@/assets/css/main.scss',
+    'element-ui/lib/theme-chalk/index.css'
+  ],
+
+  /*
+  ** Plugins
+  */
+  plugins: [{ src: '~/plugins/element-ui.js' }],
 
   /*
   ** Modules
