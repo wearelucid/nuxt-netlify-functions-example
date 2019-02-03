@@ -34,9 +34,9 @@ export default {
     <ElFormItem label="Name">
       <ElInput v-model="form.name" placeholder="Your name" required />
     </ElFormItem>
-    <ElButton type="primary" @click="randomCat(form.name)">👋 Say hello</ElButton>
+    <ElButton type="primary" @click="randomCat(form.name)">🐈 Meow</ElButton>
     <p>Response:
-      <br><br><img v-show="response" :src="response">
+      <br><br><img v-show="response" :src="response" style="width:100%;height:auto;">
     </p>
     <p v-if="error" style="color:red;"><strong>Error {{ error.status }}</strong><br>{{ error.data }}</p>
   </ElForm>
