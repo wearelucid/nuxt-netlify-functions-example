@@ -1,41 +1,17 @@
 <script>
+import Example1 from '@/components/Example1'
+import Example2 from '@/components/Example2'
+import Example3 from '@/components/Example3'
+import Example4 from '@/components/Example4'
+import Example5 from '@/components/Example5'
+
 export default {
-  data() {
-    return {
-      examples: {
-        helloWorld: {
-          response: '—',
-          error: null
-        },
-        helloName: {
-          name: '',
-          response: '—',
-          error: null
-        }
-      }
-    }
-  },
-  methods: {
-    async helloWorld() {
-      try {
-        const res = await this.$axios.$get('/.netlify/functions/hello-world')
-        this.examples.helloWorld.response = res
-        this.examples.helloWorld.error = null
-      } catch (e) {
-        this.examples.helloWorld.error = e.response
-      }
-    },
-    async helloName(name) {
-      try {
-        const res = await this.$axios.$get(
-          `/.netlify/functions/hello-name?name=${name}`
-        )
-        this.examples.helloName.response = res
-        this.examples.helloName.error = null
-      } catch (e) {
-        this.examples.helloName.error = e.response
-      }
-    }
+  components: {
+    Example1,
+    Example2,
+    Example3,
+    Example4,
+    Example5
   }
 }
 </script>
@@ -43,17 +19,15 @@ export default {
 <template>
   <div>
     <hr class="separator">
-    <h2>Hello, World!</h2>
-    <ElButton slot="append" type="primary" :loading="false" @click="helloWorld()">Ok cool</ElButton>
-    <p>Response: {{ examples.helloWorld.response }}</p>
-    <p v-if="examples.helloWorld.error" style="color:red;"><strong>Error {{ examples.helloWorld.error.status }}</strong><br>{{ examples.helloWorld.error.data }}</p>
+    <Example1 />
     <hr class="separator">
-    <h2>Hello, {name}</h2>
-    <ElInput v-model="examples.helloName.name" placeholder="Your name">
-      <ElButton slot="append" type="primary" @click="helloName(examples.helloName.name)">👋 Say hello</ElButton>
-    </ElInput>
-    <p>Response: {{ examples.helloName.response }}</p>
-    <p v-if="examples.helloName.error" style="color:red;"><strong>Error {{ examples.helloName.error.status }}</strong><br>{{ examples.helloName.error.data }}</p>
+    <Example2 />
+    <hr class="separator">
+    <Example3 />
+    <hr class="separator">
+    <Example4 />
+    <hr class="separator">
+    <Example5 />
     <hr class="separator">
   </div>
 </template>
