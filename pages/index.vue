@@ -5,6 +5,7 @@ import Example3 from '@/components/Example3'
 import Example4 from '@/components/Example4'
 import Example5 from '@/components/Example5'
 import Example6 from '@/components/Example6'
+import Example7 from '@/components/Example7'
 
 export default {
   components: {
@@ -13,7 +14,8 @@ export default {
     Example3,
     Example4,
     Example5,
-    Example6
+    Example6,
+    Example7
   }
 }
 </script>
@@ -32,6 +34,8 @@ export default {
     <Example5 />
     <hr class="separator">
     <Example6 />
+    <hr class="separator">
+    <Example7 />
     <hr class="separator">
   </div>
 </template>
