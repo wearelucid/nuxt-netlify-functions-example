@@ -39,8 +39,5 @@
     "prettier": "1.14.3",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0"
-  },
-  "resolutions": {
-    "terser": "3.14.1"
   }
 }
