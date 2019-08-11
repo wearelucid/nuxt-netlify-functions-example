@@ -23,12 +23,6 @@ describe('Example 2', () => {
     cy.get('[data-cy=btn-hello-name]').click()
     cy.contains(`Hello, ${name}`)
   })
-
-  it('Makes a GET request', () => {
-    cy.server()
-    cy.route('/.netlify/functions/hello-name').as('getName')
-    cy.get('[data-cy=btn-hello-name]').click()
-  })
 })
 
 describe('Example 3', () => {
