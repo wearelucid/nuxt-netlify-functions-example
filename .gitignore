@@ -14,3 +14,5 @@ dist
 netlify-lambda-build
 
 .env
+
+.DS_store

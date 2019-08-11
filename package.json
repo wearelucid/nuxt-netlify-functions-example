@@ -8,6 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
+    "test": "cypress open",
     "generate": "nuxt generate",
     "lint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'node_modules/**/*.scss' && eslint --ext .js,.vue --ignore-path .gitignore ."
   },
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
     "babel-eslint": "^10.0.1",
+    "cypress": "^3.4.1",
     "encoding": "^0.1.12",
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^3.1.0",
