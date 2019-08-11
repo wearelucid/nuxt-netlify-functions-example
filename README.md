@@ -43,3 +43,20 @@ $ yarn dev
 # Generate static project
 $ yarn generate
 ```
+
+## Running Tests
+You need to first start the app and the functions before running the tests.
+
+``` bash
+# Build lambda functions locally
+$ yarn netlify-lambda build netlify-lambda-src
+
+# Serve lambda functions locally
+$ yarn netlify-lambda serve netlify-lambda-src
+
+# Serve nuxt app with hot reload at localhost:3000
+$ yarn dev
+
+# Run tests
+$ yarn test
+```
