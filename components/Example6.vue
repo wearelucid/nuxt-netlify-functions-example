@@ -48,13 +48,10 @@ export default {
     },
     async postFormToLambdaFunction() {
       try {
-        const res = await this.$axios.$post(
-          '/.netlify/functions/mailgun/mailgun',
-          {
-            name: this.form.name,
-            recipient: this.form.email
-          }
-        )
+        const res = await this.$axios.$post('/.netlify/functions/mailgun', {
+          name: this.form.name,
+          recipient: this.form.email
+        })
         this.response = res
         this.error = null
         this.resetForm('mailgunForm')

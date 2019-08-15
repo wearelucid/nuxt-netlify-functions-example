@@ -14,7 +14,7 @@ export default {
     async sendSlackMessage(name) {
       try {
         const res = await this.$axios.$post(
-          '/.netlify/functions/slack-webhook/slack-webhook',
+          '/.netlify/functions/slack-webhook',
           { name }
         )
         this.response = res

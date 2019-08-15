@@ -25,9 +25,7 @@ export default {
     },
     async icanhazip() {
       try {
-        const res = await this.$axios.$get(
-          '/.netlify/functions/icanhazip/icanhazip'
-        )
+        const res = await this.$axios.$get('/.netlify/functions/icanhazip')
         this.response = res
         this.error = null
       } catch (e) {
