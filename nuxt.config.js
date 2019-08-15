@@ -1,7 +1,7 @@
-module.exports = {
+export default {
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: 'nuxt-netlify-functions-example',
     meta: [
@@ -13,8 +13,8 @@ module.exports = {
   },
 
   /*
-  ** CSS
-  */
+   ** CSS
+   */
   css: [
     'normalize.css',
     '@/assets/css/main.scss',
@@ -22,48 +22,37 @@ module.exports = {
   ],
 
   /*
-  ** Plugins
-  */
+   ** Plugins
+   */
   plugins: [{ src: '~/plugins/element-ui.js' }],
 
   /*
-  ** Modules
-  */
-  modules: ['@nuxtjs/axios', '@nuxtjs/proxy'],
+   ** Nuxt.js dev-modules
+   */
+  devModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    '@nuxtjs/eslint-module'
+  ],
 
   /*
-  ** Axios config
-  */
+   ** Modules
+   */
+  modules: ['@nuxtjs/axios'],
+
+  /*
+   ** Axios config
+   */
   axios: {
     baseURL: '/'
   },
 
   /*
-  ** Proxy config
-  */
-  proxy: {
-    '/.netlify': {
-      target: 'http://localhost:9000',
-      pathRewrite: { '^/.netlify/functions': '' }
-    }
-  },
-
-  /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
-    extend(config, ctx) {
-      /*
-      ** Run ESLINT on save
-      */
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
 }
