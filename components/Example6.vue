@@ -48,10 +48,13 @@ export default {
     },
     async postFormToLambdaFunction() {
       try {
-        const res = await this.$axios.$post('/.netlify/functions/mailgun', {
-          name: this.form.name,
-          recipient: this.form.email
-        })
+        const res = await this.$axios.$post(
+          '/.netlify/functions/mailgun/mailgun',
+          {
+            name: this.form.name,
+            recipient: this.form.email
+          }
+        )
         this.response = res
         this.error = null
         this.resetForm('mailgunForm')
@@ -65,17 +68,32 @@ export default {
 </script>
 
 <template>
-  <ElForm ref="mailgunForm" :rules="rules" :model="form" label-width="80px" label-position="left">
-    <h2>6. Send form submission with <a href="https://www.mailgun.com/" target="_blank">Mailgun</a></h2>
+  <ElForm
+    ref="mailgunForm"
+    :rules="rules"
+    :model="form"
+    label-width="80px"
+    label-position="left"
+  >
+    <h2>
+      6. Send form submission with
+      <a href="https://www.mailgun.com/" target="_blank">Mailgun</a>
+    </h2>
     <ElFormItem label="Name" prop="name">
       <ElInput v-model="form.name" placeholder="Your name" required />
     </ElFormItem>
     <ElFormItem label="Email" prop="email">
       <ElInput v-model="form.email" placeholder="Your email" required />
     </ElFormItem>
-    <ElButton type="primary" @click="submitForm('mailgunForm')">💌 Send form</ElButton>
+    <ElButton type="primary" @click="submitForm('mailgunForm')">
+      💌 Send form
+    </ElButton>
     <ElButton type="info" @click="resetForm('mailgunForm')">Reset</ElButton>
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color:red;"><strong>Error {{ error.status }}</strong><br>{{ error.data }}</p>
+    <p v-if="error" style="color:red;">
+      <strong>Error {{ error.status }}</strong>
+      <br />
+      {{ error.data }}
+    </p>
   </ElForm>
 </template>

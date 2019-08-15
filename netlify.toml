@@ -1,4 +1,7 @@
+[dev]
+   command = "yarn dev"
+
 [build]
-  command = "yarn generate && yarn netlify-lambda build ./netlify-lambda-src"
-  functions = "netlify-lambda-build"
+  command = "yarn generate"
   publish = "dist"
+  functions = "functions"

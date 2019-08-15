@@ -27,6 +27,10 @@ export default {
     <h2>1. Hello, World!</h2>
     <ElButton type="primary" @click="helloWorld()">Hello</ElButton>
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color:red;"><strong>Error {{ error.status }}</strong><br>{{ error.data }}</p>
+    <p v-if="error" style="color:red;">
+      <strong>Error {{ error.status }}</strong>
+      <br />
+      {{ error.data }}
+    </p>
   </div>
 </template>
