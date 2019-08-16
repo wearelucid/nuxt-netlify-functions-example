@@ -10,35 +10,26 @@
 Live demo can be found [here](https://nuxt-netlify-functions-example.netlify.com/).
 
 
-## Info
-For the requests on the client side we use the [Axios Module](https://github.com/nuxt-community/axios-module). To proxy locally you have to set up the [Proxy Module](https://github.com/nuxt-community/proxy-module) in `nuxt.config.js`:
+## Testing functions locally
+Thanks to the [Netlify Dev](https://www.netlify.com/products/dev/) command in the Netlify CLI (`yarn global add nelitfy-cli`), you can test your functions locally with no build step involved!
 
-```js
-proxy: {
-  '/.netlify': {
-    target: 'http://localhost:9000',
-    pathRewrite: { '^/.netlify/functions': '' }
-  }
-}
-```
+After building the app and running `netlify dev` or `ntl dev`, you can test the functions locally by hitting the endpoint http://localhost:8888/.netlify/functions/<function-name>
+
 
 ## Build Setup
 
 ``` bash
-# Use nvm
+# Use Node version specified in nvmrc
 $ nvm use
 
 # Install dependencies
 $ yarn
 
-# Build lambda functions locally
-$ yarn netlify-lambda build netlify-lambda-src
+# Build Nuxt app
+$ yarn build
 
-# Serve lambda functions locally
-$ yarn netlify-lambda serve netlify-lambda-src
-
-# Serve nuxt app with hot reload at localhost:3000
-$ yarn dev
+# Serve Nuxt app and Netlify functions at localhost:8888
+$ netlify dev
 
 # Generate static project
 $ yarn generate
