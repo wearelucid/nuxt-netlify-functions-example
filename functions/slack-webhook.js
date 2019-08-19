@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+const fetch = require('node-fetch')
 require('dotenv').config()
 
 // eslint-disable-next-line require-await
