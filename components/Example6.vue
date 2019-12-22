@@ -82,10 +82,10 @@ export default {
     <ElFormItem label="Email" prop="email">
       <ElInput v-model="form.email" placeholder="Your email" required />
     </ElFormItem>
-    <ElButton type="primary" @click="submitForm('mailgunForm')">
+    <ElButton @click="submitForm('mailgunForm')" type="primary">
       💌 Send form
     </ElButton>
-    <ElButton type="info" @click="resetForm('mailgunForm')">Reset</ElButton>
+    <ElButton @click="resetForm('mailgunForm')" type="info">Reset</ElButton>
     <p>Response: {{ response }}</p>
     <p v-if="error" style="color:red;">
       <strong>Error {{ error.status }}</strong>
