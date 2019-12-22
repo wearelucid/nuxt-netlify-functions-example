@@ -66,7 +66,7 @@ export default {
     </ElButton>
     <ElButton
       type="danger"
-      data-cy="btn-hello-name-post"
+      data-cy="btn-hello-name-post-error"
       @click="helloNamePostError(form.name)"
     >
       .$get() Error

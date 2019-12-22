@@ -46,12 +46,23 @@ export default {
         required
       />
     </ElFormItem>
-    <ElButton type="primary" @click="randomCat(form.name)">🐈 Meow</ElButton>
+    <ElButton
+      type="primary"
+      data-cy="btn-random-cat"
+      @click="randomCat(form.name)"
+    >
+      🐈 Meow
+    </ElButton>
     <p>
       Response:
       <br />
       <br />
-      <img v-show="response" :src="response" style="width:100%;height:auto;" />
+      <img
+        v-show="response"
+        data-cy="img-random-cat"
+        :src="response"
+        style="width:100%;height:auto;"
+      />
     </p>
     <p v-if="error" style="color:red;">
       <strong>Error {{ error.status }}</strong>
