@@ -2,7 +2,8 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
+    'cypress/globals': true
   },
   parserOptions: {
     parser: 'babel-eslint',
@@ -19,7 +20,7 @@ module.exports = {
     'plugin:nuxt/recommended'
   ],
   // required to lint *.vue files
-  plugins: ['prettier'],
+  plugins: ['prettier', 'cypress'],
   rules: {
     semi: [2, 'never'],
     'no-console': 'warn',
@@ -38,7 +39,8 @@ module.exports = {
       'error',
       {
         singleQuote: true,
-        semi: false
+        semi: false,
+        endOfLine:"auto"
       }
     ],
   }

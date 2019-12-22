@@ -51,12 +51,24 @@ export default {
   >
     <h2>3. Hello, {name} (POST version)</h2>
     <ElFormItem label="Name">
-      <ElInput v-model="form.name" placeholder="Your name" />
+      <ElInput
+        v-model="form.name"
+        placeholder="Your name"
+        data-cy="input-hello-name-post"
+      />
     </ElFormItem>
-    <ElButton type="primary" @click="helloNamePost(form.name)">
+    <ElButton
+      type="primary"
+      data-cy="btn-hello-name-post"
+      @click="helloNamePost(form.name)"
+    >
       👋 Say hello
     </ElButton>
-    <ElButton type="danger" @click="helloNamePostError(form.name)">
+    <ElButton
+      type="danger"
+      data-cy="btn-hello-name-post-error"
+      @click="helloNamePostError(form.name)"
+    >
       .$get() Error
     </ElButton>
     <p>Response: {{ response }}</p>

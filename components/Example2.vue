@@ -38,9 +38,18 @@ export default {
   >
     <h2>2. Hello, {name}</h2>
     <ElFormItem label="Name">
-      <ElInput v-model="form.name" placeholder="Your name" required />
+      <ElInput
+        v-model="form.name"
+        placeholder="Your name"
+        required
+        data-cy="input-hello-name"
+      />
     </ElFormItem>
-    <ElButton type="primary" @click="helloName(form.name)">
+    <ElButton
+      type="primary"
+      data-cy="btn-hello-name"
+      @click="helloName(form.name)"
+    >
       👋 Say hello
     </ElButton>
     <p>Response: {{ response }}</p>
