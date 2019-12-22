@@ -25,7 +25,7 @@ export default {
 <template>
   <div>
     <h2>1. Hello, World!</h2>
-    <ElButton type="primary" data-cy="btn-hello-world" @click="helloWorld()"
+    <ElButton @click="helloWorld()" type="primary" data-cy="btn-hello-world"
       >Hello</ElButton
     >
     <p>Response: {{ response }}</p>

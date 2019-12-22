@@ -31,10 +31,10 @@ export default {
   <ElForm
     ref="form"
     :model="form"
+    @submit.native.prevent="randomCat(form.name)"
     inline
     label-width="auto"
     label-position="left"
-    @submit.native.prevent="randomCat(form.name)"
   >
     <h2>4. Get a random cat with your name</h2>
     <p><em>API call done by your browser</em></p>
@@ -47,9 +47,9 @@ export default {
       />
     </ElFormItem>
     <ElButton
+      @click="randomCat(form.name)"
       type="primary"
       data-cy="btn-random-cat"
-      @click="randomCat(form.name)"
     >
       🐈 Meow
     </ElButton>
@@ -59,8 +59,8 @@ export default {
       <br />
       <img
         v-show="response"
-        data-cy="img-random-cat"
         :src="response"
+        data-cy="img-random-cat"
         style="width:100%;height:auto;"
       />
     </p>

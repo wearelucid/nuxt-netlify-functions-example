@@ -32,16 +32,16 @@ export default {
   <ElForm
     ref="form"
     :model="form"
+    @submit.native.prevent="sendSlackMessage(form.name)"
     inline
     label-width="auto"
     label-position="left"
-    @submit.native.prevent="sendSlackMessage(form.name)"
   >
     <h2>7. Send a Slack message</h2>
     <ElFormItem label="Name">
       <ElInput v-model="form.name" placeholder="Your name" />
     </ElFormItem>
-    <ElButton type="primary" @click="sendSlackMessage(form.name)">
+    <ElButton @click="sendSlackMessage(form.name)" type="primary">
       👋 Say hello
     </ElButton>
     <p>Response: {{ response }}</p>

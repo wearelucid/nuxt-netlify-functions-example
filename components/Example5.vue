@@ -41,18 +41,18 @@ export default {
   <ElForm
     ref="form"
     :model="form"
+    @submit.native.prevent="icanhazip()"
     inline
     label-width="auto"
     label-position="left"
-    @submit.native.prevent="icanhazip()"
   >
     <h2>5. icanhazip.com</h2>
     <p><em>API call done by lambda function</em></p>
     <p>Your IP: {{ ip }}</p>
-    <ElButton type="primary" @click="icanhazip()">
+    <ElButton @click="icanhazip()" type="primary">
       🤖 Haz AWS IP please
     </ElButton>
-    <ElButton type="info" @click="response = '—'">Clear</ElButton>
+    <ElButton @click="response = '—'" type="info">Clear</ElButton>
     <p>Response: {{ response }}</p>
     <p v-if="error" style="color:red;">
       <strong>Error {{ error.status }}</strong>

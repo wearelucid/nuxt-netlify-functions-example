@@ -36,18 +36,9 @@ $ yarn generate
 ```
 
 ## Running Tests
-You need to first start the app and the functions before running the tests.
+Tests use the Netlify CLI to run the serverless functions locally. You'll probably be prompted to login with your Netlify account.
 
 ``` bash
-# Build lambda functions locally
-$ yarn netlify-lambda build netlify-lambda-src
-
-# Serve lambda functions locally
-$ yarn netlify-lambda serve netlify-lambda-src
-
-# Serve nuxt app with hot reload at localhost:3000
-$ yarn dev
-
 # Run tests
 $ yarn test
 ```
