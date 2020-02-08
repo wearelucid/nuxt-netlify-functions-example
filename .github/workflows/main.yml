@@ -1,0 +1,20 @@
+name: End-to-end tests
+on: [pull_request]
+jobs:
+  cypress-run:
+    runs-on: ubuntu-16.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        env:
+          CYPRESS_baseUrl: "https://deploy-preview-${{ github.event.number }}--nuxt-netlify-functions-example.netlify.com"
+        with:
+          record: false
+          wait-on: "https://deploy-preview-${{ github.event.number }}--nuxt-netlify-functions-example.netlify.com"
+          wait-on-timeout: 90

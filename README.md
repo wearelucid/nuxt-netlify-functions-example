@@ -7,18 +7,18 @@
 > Heavily inspired by the [official guide](https://functions-playground.netlify.com/) and [this example](https://github.com/stefanjudis/service-party).
 
 ## Demo
+
 Live demo can be found [here](https://nuxt-netlify-functions-example.netlify.com/).
 
-
 ## Testing functions locally
+
 Thanks to the [Netlify Dev](https://www.netlify.com/products/dev/) command in the Netlify CLI (`yarn global add nelitfy-cli`), you can test your functions locally with no build step involved!
 
 After building the app and running `netlify dev` or `ntl dev`, you can test the functions locally by hitting the endpoint http://localhost:8888/.netlify/functions/<function-name>
 
-
 ## Build Setup
 
-``` bash
+```bash
 # Use Node version specified in nvmrc
 $ nvm use
 
@@ -36,9 +36,13 @@ $ yarn generate
 ```
 
 ## Running Tests
+
 Tests use the Netlify CLI to run the serverless functions locally. You'll probably be prompted to login with your Netlify account.
 
-``` bash
-# Run tests
+```bash
+# Serve Nuxt app and Netlify functions at localhost:8888
+$ netlify dev
+
+# Run this command in another terminal
 $ yarn test
 ```
