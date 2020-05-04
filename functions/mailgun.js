@@ -5,7 +5,7 @@ const mailgun = require('mailgun.js')
 const mg = mailgun.client({
   url: MG_HOST,
   username: 'api',
-  key: MG_API_KEY
+  key: MG_API_KEY,
 })
 
 const sendEmail = async ({ name, recipient }) => {
@@ -16,13 +16,13 @@ const sendEmail = async ({ name, recipient }) => {
     to: recipient.toString(),
     subject: `Hello ${name}`,
     text: `Hello ${name}`,
-    html: `<h1>👋 Hello ${name}</h1>`
+    html: `<h1>👋 Hello ${name}</h1>`,
   })
 
   return res
 }
 
-exports.handler = async event => {
+exports.handler = async (event) => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }
@@ -33,12 +33,12 @@ exports.handler = async event => {
     await sendEmail(data)
     return {
       statusCode: 200,
-      body: 'Email sent!'
+      body: 'Email sent!',
     }
   } catch (err) {
     return {
       statusCode: 500,
-      body: err.message || err
+      body: err.message || err,
     }
   }
 }

@@ -5,7 +5,7 @@ export default {
     return {
       form: {
         name: '',
-        email: ''
+        email: '',
       },
       response: '—',
       error: null,
@@ -14,27 +14,27 @@ export default {
           {
             required: true,
             message: 'Please tell me your name',
-            trigger: 'blur'
-          }
+            trigger: 'blur',
+          },
         ],
         email: [
           {
             required: true,
             message: 'Please enter a valid email address',
-            trigger: 'blur'
+            trigger: 'blur',
           },
           {
             type: 'email',
             message: 'Please enter a valid email address',
-            trigger: 'blur'
-          }
-        ]
-      }
+            trigger: 'blur',
+          },
+        ],
+      },
     }
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.postFormToLambdaFunction()
         } else {
@@ -50,7 +50,7 @@ export default {
       try {
         const res = await this.$axios.$post('/.netlify/functions/mailgun', {
           name: this.form.name,
-          recipient: this.form.email
+          recipient: this.form.email,
         })
         this.response = res
         this.error = null
@@ -59,8 +59,8 @@ export default {
         this.error = e.response
         this.response = '—'
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -82,12 +82,12 @@ export default {
     <ElFormItem label="Email" prop="email">
       <ElInput v-model="form.email" placeholder="Your email" required />
     </ElFormItem>
-    <ElButton @click="submitForm('mailgunForm')" type="primary">
+    <ElButton type="primary" @click="submitForm('mailgunForm')">
       💌 Send form
     </ElButton>
-    <ElButton @click="resetForm('mailgunForm')" type="info">Reset</ElButton>
+    <ElButton type="info" @click="resetForm('mailgunForm')">Reset</ElButton>
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color:red;">
+    <p v-if="error" style="color: red;">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

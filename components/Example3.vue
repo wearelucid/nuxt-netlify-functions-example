@@ -4,10 +4,10 @@ export default {
   data() {
     return {
       form: {
-        name: ''
+        name: '',
       },
       response: '—',
-      error: null
+      error: null,
     }
   },
   methods: {
@@ -35,8 +35,8 @@ export default {
         this.error = e.response
         this.response = '—'
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -44,10 +44,10 @@ export default {
   <ElForm
     ref="form"
     :model="form"
-    @submit.native.prevent="helloNamePost(form.name)"
     inline
     label-width="auto"
     label-position="left"
+    @submit.native.prevent="helloNamePost(form.name)"
   >
     <h2>3. Hello, {name} (POST version)</h2>
     <ElFormItem label="Name">
@@ -58,21 +58,21 @@ export default {
       />
     </ElFormItem>
     <ElButton
-      @click="helloNamePost(form.name)"
       type="primary"
       data-cy="btn-hello-name-post"
+      @click="helloNamePost(form.name)"
     >
       👋 Say hello
     </ElButton>
     <ElButton
-      @click="helloNamePostError(form.name)"
       type="danger"
       data-cy="btn-hello-name-post-error"
+      @click="helloNamePostError(form.name)"
     >
       .$get() Error
     </ElButton>
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color:red;">
+    <p v-if="error" style="color: red;">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

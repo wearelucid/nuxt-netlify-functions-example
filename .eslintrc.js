@@ -7,7 +7,7 @@ module.exports = {
   },
   parserOptions: {
     parser: 'babel-eslint',
-    'sourceType': 'module'
+    sourceType: 'module'
   },
   extends: [
     'eslint:recommended',
@@ -40,8 +40,8 @@ module.exports = {
       {
         singleQuote: true,
         semi: false,
-        endOfLine:"auto"
+        endOfLine: 'auto'
       }
-    ],
+    ]
   }
 }
