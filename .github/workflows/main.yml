@@ -13,8 +13,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         env:
-          CYPRESS_baseUrl: "https://deploy-preview-${{ github.event.number }}--nuxt-netlify-functions-example.netlify.com"
+          CYPRESS_baseUrl: 'https://deploy-preview-${{ github.event.number }}--nuxt-netlify-functions-example.netlify.app'
         with:
           record: false
-          wait-on: "https://deploy-preview-${{ github.event.number }}--nuxt-netlify-functions-example.netlify.com"
+          wait-on: 'https://deploy-preview-${{ github.event.number }}--nuxt-netlify-functions-example.netlify.app'
           wait-on-timeout: 90
