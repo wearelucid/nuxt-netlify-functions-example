@@ -2,7 +2,13 @@
 exports.handler = async (event, context) => {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' }
+    return {
+      statusCode: 405,
+      body: 'Method Not Allowed',
+      headers: {
+        Allow: 'Get',
+      },
+    }
   }
 
   const data = JSON.parse(event.body)
@@ -10,6 +16,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: `Hello, ${name}`
+    body: `Hello, ${name}`,
   }
 }

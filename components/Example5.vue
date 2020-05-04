@@ -6,7 +6,7 @@ export default {
       form: {},
       response: '—',
       error: null,
-      ip: null
+      ip: null,
     }
   },
   mounted() {
@@ -32,8 +32,8 @@ export default {
         this.error = e.response
         this.response = '—'
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -41,20 +41,20 @@ export default {
   <ElForm
     ref="form"
     :model="form"
-    @submit.native.prevent="icanhazip()"
     inline
     label-width="auto"
     label-position="left"
+    @submit.native.prevent="icanhazip()"
   >
     <h2>5. icanhazip.com</h2>
     <p><em>API call done by lambda function</em></p>
     <p>Your IP: {{ ip }}</p>
-    <ElButton @click="icanhazip()" type="primary">
+    <ElButton type="primary" @click="icanhazip()">
       🤖 Haz AWS IP please
     </ElButton>
-    <ElButton @click="response = '—'" type="info">Clear</ElButton>
+    <ElButton type="info" @click="response = '—'">Clear</ElButton>
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color:red;">
+    <p v-if="error" style="color: red;">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

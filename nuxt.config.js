@@ -8,8 +8,8 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
 
-      { name: 'author', content: 'Lucid – wearelucid.ch' }
-    ]
+      { name: 'author', content: 'Lucid – wearelucid.ch' },
+    ],
   },
 
   /*
@@ -18,7 +18,7 @@ export default {
   css: [
     'normalize.css',
     '@/assets/css/main.scss',
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
   ],
 
   /*
@@ -31,7 +31,7 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
   ],
 
   /*
@@ -43,7 +43,7 @@ export default {
    ** Axios config
    */
   axios: {
-    baseURL: '/'
+    baseURL: '/',
   },
 
   /*
@@ -53,6 +53,6 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
 }

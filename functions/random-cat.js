@@ -4,6 +4,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: `https://cataas.com/cat/gif/says/${name}`
+    body: `https://cataas.com/cat/gif/says/${name}`,
   }
 }

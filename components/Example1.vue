@@ -4,7 +4,7 @@ export default {
   data() {
     return {
       response: '—',
-      error: null
+      error: null,
     }
   },
   methods: {
@@ -17,19 +17,19 @@ export default {
         this.error = e.response
         this.response = '—'
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
 <template>
   <div>
     <h2>1. Hello, World!</h2>
-    <ElButton @click="helloWorld()" type="primary" data-cy="btn-hello-world"
+    <ElButton type="primary" data-cy="btn-hello-world" @click="helloWorld()"
       >Hello</ElButton
     >
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color:red;">
+    <p v-if="error" style="color: red;">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

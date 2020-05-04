@@ -4,10 +4,10 @@ export default {
   data() {
     return {
       form: {
-        name: ''
+        name: '',
       },
       response: null,
-      error: null
+      error: null,
     }
   },
   methods: {
@@ -22,8 +22,8 @@ export default {
         this.error = e.response
         this.response = null
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -31,10 +31,10 @@ export default {
   <ElForm
     ref="form"
     :model="form"
-    @submit.native.prevent="randomCat(form.name)"
     inline
     label-width="auto"
     label-position="left"
+    @submit.native.prevent="randomCat(form.name)"
   >
     <h2>4. Get a random cat with your name</h2>
     <p><em>API call done by your browser</em></p>
@@ -47,9 +47,9 @@ export default {
       />
     </ElFormItem>
     <ElButton
-      @click="randomCat(form.name)"
       type="primary"
       data-cy="btn-random-cat"
+      @click="randomCat(form.name)"
     >
       🐈 Meow
     </ElButton>
@@ -61,10 +61,10 @@ export default {
         v-show="response"
         :src="response"
         data-cy="img-random-cat"
-        style="width:100%;height:auto;"
+        style="width: 100%; height: auto;"
       />
     </p>
-    <p v-if="error" style="color:red;">
+    <p v-if="error" style="color: red;">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

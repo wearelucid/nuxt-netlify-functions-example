@@ -36,23 +36,19 @@ describe('Example 3', () => {
   it('Defaults to "Hello, World"', () => {
     cy.get('[data-cy=btn-hello-name-post]').click()
     cy.contains('Hello, World')
-    cy.wait('@postName')
-      .its('method')
-      .should('eq', 'POST')
+    cy.wait('@postName').its('method').should('eq', 'POST')
   })
 
   it(`Shows "Hello, ${name}"`, () => {
     cy.get('[data-cy=input-hello-name-post]').type(name)
     cy.get('[data-cy=btn-hello-name-post]').click()
     cy.contains(`Hello, ${name}`)
-    cy.wait('@postName')
-      .its('method')
-      .should('eq', 'POST')
+    cy.wait('@postName').its('method').should('eq', 'POST')
   })
 
   it(`Throws error 405 Method Not Allowed`, () => {
     cy.get('[data-cy=btn-hello-name-post-error]').click()
-    cy.wait('@getName').then(xhr => {
+    cy.wait('@getName').then((xhr) => {
       expect(xhr.status).to.equal(405)
       expect(xhr.method).to.equal('GET')
     })
@@ -69,9 +65,7 @@ describe('Example 4', () => {
 
   it('Defaults to Meow', () => {
     cy.get('[data-cy=btn-random-cat]').click()
-    cy.wait('@getName')
-      .its('response.body')
-      .should('include', 'Meow')
+    cy.wait('@getName').its('response.body').should('include', 'Meow')
     cy.contains('Hello, World')
     cy.get('[data-cy=img-random-cat]').should('be.visible')
   })
@@ -79,9 +73,7 @@ describe('Example 4', () => {
   it(`Shows "Hello, ${name}"`, () => {
     cy.get('[data-cy=input-random-cat]').type(name)
     cy.get('[data-cy=btn-random-cat]').click()
-    cy.wait('@getName')
-      .its('response.body')
-      .should('include', name)
+    cy.wait('@getName').its('response.body').should('include', name)
     cy.get('[data-cy=img-random-cat]').should('be.visible')
   })
 })
