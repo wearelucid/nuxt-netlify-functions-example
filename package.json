@@ -19,7 +19,7 @@
     "element-ui": "^2.13.1",
     "encoding": "^0.1.12",
     "mailgun.js": "^2.0.1",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.12.2"
   },
