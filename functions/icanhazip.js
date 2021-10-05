@@ -1,8 +1,8 @@
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 
 const API_ENDPOINT = 'https://icanhazip.com/'
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
   const res = await fetch(API_ENDPOINT)
     .then((response) => response.text())
     .then((data) => ({

@@ -1,32 +1,3 @@
-<script>
-export default {
-  name: 'Example4',
-  data() {
-    return {
-      form: {
-        name: '',
-      },
-      response: null,
-      error: null,
-    }
-  },
-  methods: {
-    async randomCat(name) {
-      try {
-        const res = await this.$axios.$get(
-          `/.netlify/functions/random-cat?name=${name}`
-        )
-        this.response = res
-        this.error = null
-      } catch (e) {
-        this.error = e.response
-        this.response = null
-      }
-    },
-  },
-}
-</script>
-
 <template>
   <ElForm
     ref="form"
@@ -58,16 +29,45 @@ export default {
       <br />
       <br />
       <img
-        v-show="response"
+        v-if="response"
         :src="response"
         data-cy="img-random-cat"
-        style="width: 100%; height: auto;"
+        style="width: 100%; height: auto"
       />
     </p>
-    <p v-if="error" style="color: red;">
+    <p v-if="error" style="color: red">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}
     </p>
   </ElForm>
 </template>
+
+<script>
+export default {
+  name: 'Example4',
+  data() {
+    return {
+      form: {
+        name: '',
+      },
+      response: null,
+      error: null,
+    }
+  },
+  methods: {
+    async randomCat(name) {
+      try {
+        const res = await this.$axios.$get(
+          `/.netlify/functions/random-cat?name=${name}`
+        )
+        this.response = res
+        this.error = null
+      } catch (e) {
+        this.error = e.response
+        this.response = null
+      }
+    },
+  },
+}
+</script>

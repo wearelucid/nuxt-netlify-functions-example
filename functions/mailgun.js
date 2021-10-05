@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-require('dotenv').config()
+import mailgun from 'mailgun.js'
 const { MG_API_KEY, MG_DOMAIN, MG_HOST } = process.env
-const mailgun = require('mailgun.js')
 const mg = mailgun.client({
   url: MG_HOST,
   username: 'api',
@@ -22,7 +21,7 @@ const sendEmail = async ({ name, recipient }) => {
   return res
 }
 
-exports.handler = async (event) => {
+export async function handler(event) {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }

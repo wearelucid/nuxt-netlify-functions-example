@@ -1,3 +1,37 @@
+<template>
+  <ElForm
+    ref="form"
+    :model="form"
+    inline
+    label-width="auto"
+    label-position="left"
+    @submit.native.prevent="helloName(form.name)"
+  >
+    <h2>2. Hello, {name}</h2>
+    <ElFormItem label="Name">
+      <ElInput
+        v-model="form.name"
+        placeholder="Your name"
+        required
+        data-cy="input-hello-name"
+      />
+    </ElFormItem>
+    <ElButton
+      type="primary"
+      data-cy="btn-hello-name"
+      @click="helloName(form.name)"
+    >
+      👋 Say hello
+    </ElButton>
+    <p>Response: {{ response }}</p>
+    <p v-if="error" style="color: red">
+      <strong>Error {{ error.status }}</strong>
+      <br />
+      {{ error.data }}
+    </p>
+  </ElForm>
+</template>
+
 <script>
 export default {
   name: 'Example2',
@@ -26,37 +60,3 @@ export default {
   },
 }
 </script>
-
-<template>
-  <ElForm
-    ref="form"
-    :model="form"
-    inline
-    label-width="auto"
-    label-position="left"
-    @submit.native.prevent="helloName(form.name)"
-  >
-    <h2>2. Hello, {name}</h2>
-    <ElFormItem label="Name">
-      <ElInput
-        v-model="form.name"
-        placeholder="Your name"
-        required
-        data-cy="input-hello-name"
-      />
-    </ElFormItem>
-    <ElButton
-      type="primary"
-      data-cy="btn-hello-name"
-      @click="helloName(form.name)"
-    >
-      👋 Say hello
-    </ElButton>
-    <p>Response: {{ response }}</p>
-    <p v-if="error" style="color: red;">
-      <strong>Error {{ error.status }}</strong>
-      <br />
-      {{ error.data }}
-    </p>
-  </ElForm>
-</template>

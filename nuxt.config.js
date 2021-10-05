@@ -12,14 +12,14 @@ export default {
     ],
   },
 
+  target: 'static',
+
+  components: true,
+
   /*
    ** CSS
    */
-  css: [
-    'normalize.css',
-    '@/assets/css/main.scss',
-    'element-ui/lib/theme-chalk/index.css',
-  ],
+  css: ['normalize.css', 'element-ui/lib/theme-chalk/index.css'],
 
   /*
    ** Plugins
@@ -49,10 +49,4 @@ export default {
   /*
    ** Build configuration
    */
-  build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {},
-  },
 }

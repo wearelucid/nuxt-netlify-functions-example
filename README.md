@@ -26,9 +26,6 @@ $ nvm use
 # Install dependencies
 $ yarn
 
-# Build Nuxt app
-$ yarn build
-
 # Serve Nuxt app and Netlify functions at localhost:8888
 $ netlify dev
 
