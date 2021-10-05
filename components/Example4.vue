@@ -29,7 +29,7 @@
       <br />
       <br />
       <img
-        v-show="response"
+        v-if="response"
         :src="response"
         data-cy="img-random-cat"
         style="width: 100%; height: auto"
