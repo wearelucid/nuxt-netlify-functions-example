@@ -1,5 +1,5 @@
 // eslint-disable-next-line require-await
-exports.handler = async (event, context) => {
+export async function handler(event) {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return {

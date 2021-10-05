@@ -1,8 +1,7 @@
-const fetch = require('node-fetch')
-require('dotenv').config()
+import fetch from 'node-fetch'
 
 // eslint-disable-next-line require-await
-exports.handler = async (event, context) => {
+export async function handler(event) {
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' }

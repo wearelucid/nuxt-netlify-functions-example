@@ -87,7 +87,7 @@ export default {
     </ElButton>
     <ElButton type="info" @click="resetForm('mailgunForm')">Reset</ElButton>
     <p>Response: {{ response }}</p>
-    <p v-if="error" style="color: red;">
+    <p v-if="error" style="color: red">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}

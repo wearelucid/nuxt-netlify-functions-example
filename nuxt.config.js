@@ -12,14 +12,12 @@ export default {
     ],
   },
 
+  components: true,
+
   /*
    ** CSS
    */
-  css: [
-    'normalize.css',
-    '@/assets/css/main.scss',
-    'element-ui/lib/theme-chalk/index.css',
-  ],
+  css: ['normalize.css', 'element-ui/lib/theme-chalk/index.css'],
 
   /*
    ** Plugins

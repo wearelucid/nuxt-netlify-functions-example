@@ -1,5 +1,5 @@
 // eslint-disable-next-line require-await
-exports.handler = async (event, context) => {
+export async function handler(event) {
   const name = event.queryStringParameters.name || 'World'
 
   return {

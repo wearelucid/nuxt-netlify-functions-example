@@ -1,5 +1,5 @@
 <template>
-  <ElContainer direction="vertical" class="Layout">
+  <ElContainer direction="vertical" class="layout">
     <ElHeader height="auto">
       <h1>nuxt-netlify-functions-example</h1>
       <a
@@ -19,4 +19,20 @@
   </ElContainer>
 </template>
 
-<style src="./layout.scss" lang="scss" />
+<style>
+/* NUXT default transition */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.layout {
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>

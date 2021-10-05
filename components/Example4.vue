@@ -61,10 +61,10 @@ export default {
         v-show="response"
         :src="response"
         data-cy="img-random-cat"
-        style="width: 100%; height: auto;"
+        style="width: 100%; height: auto"
       />
     </p>
-    <p v-if="error" style="color: red;">
+    <p v-if="error" style="color: red">
       <strong>Error {{ error.status }}</strong>
       <br />
       {{ error.data }}
