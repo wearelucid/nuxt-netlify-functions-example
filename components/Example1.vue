@@ -1,3 +1,18 @@
+<template>
+  <div>
+    <h2>1. Hello, World!</h2>
+    <ElButton type="primary" data-cy="btn-hello-world" @click="helloWorld()"
+      >Hello</ElButton
+    >
+    <p>Response: {{ response }}</p>
+    <p v-if="error" style="color: red">
+      <strong>Error {{ error.status }}</strong>
+      <br />
+      {{ error.data }}
+    </p>
+  </div>
+</template>
+
 <script>
 export default {
   name: 'Example1',
@@ -21,18 +36,3 @@ export default {
   },
 }
 </script>
-
-<template>
-  <div>
-    <h2>1. Hello, World!</h2>
-    <ElButton type="primary" data-cy="btn-hello-world" @click="helloWorld()"
-      >Hello</ElButton
-    >
-    <p>Response: {{ response }}</p>
-    <p v-if="error" style="color: red">
-      <strong>Error {{ error.status }}</strong>
-      <br />
-      {{ error.data }}
-    </p>
-  </div>
-</template>

@@ -1,32 +1,3 @@
-<script>
-export default {
-  name: 'Example4',
-  data() {
-    return {
-      form: {
-        name: '',
-      },
-      response: null,
-      error: null,
-    }
-  },
-  methods: {
-    async randomCat(name) {
-      try {
-        const res = await this.$axios.$get(
-          `/.netlify/functions/random-cat?name=${name}`
-        )
-        this.response = res
-        this.error = null
-      } catch (e) {
-        this.error = e.response
-        this.response = null
-      }
-    },
-  },
-}
-</script>
-
 <template>
   <ElForm
     ref="form"
@@ -71,3 +42,32 @@ export default {
     </p>
   </ElForm>
 </template>
+
+<script>
+export default {
+  name: 'Example4',
+  data() {
+    return {
+      form: {
+        name: '',
+      },
+      response: null,
+      error: null,
+    }
+  },
+  methods: {
+    async randomCat(name) {
+      try {
+        const res = await this.$axios.$get(
+          `/.netlify/functions/random-cat?name=${name}`
+        )
+        this.response = res
+        this.error = null
+      } catch (e) {
+        this.error = e.response
+        this.response = null
+      }
+    },
+  },
+}
+</script>

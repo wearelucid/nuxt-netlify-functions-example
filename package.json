@@ -11,7 +11,7 @@
     "test": "cypress open",
     "test:ci": "cypress run",
     "generate": "nuxt generate",
-    "lint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'node_modules/**/*.scss' && eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
